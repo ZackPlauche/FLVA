@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %} | FLVA</title>
+    <link rel="stylesheet" href="{% static 'base/css/style.css' %}">
+  </head>
+  <body>
+    <header>
+      {% block above_nav %}
+      {% endblock %}
+      {% block navbar %}
+      <nav class="navbar">
+        <a class="logo">FLVA</a>
+        <a class="sub-logo">Future Librarians of Virginia</a>
+        <ul class="nav-links">
+          <li><a href="{% url 'base:index' %}">Home</a></li>
+          <li><a href="{% url 'base:about' %}">About</a></li>
+          <li><a href="{% url 'base:contact' %}">Contact</a></li>
+          <li><a href="{% url 'base:faq' %}">FAQ</a></li>
+        </ul>
+      </nav>
+      {% endblock %}
+      {% block below_nav %}
+      {% endblock %}
+    </header>
+    <main>
+      {% block main %}
+      {% endblock %}
+    </main>
+    <footer>
+      <div class="copyright">
+        © Jamia Hawkins {% now "Y" %}
+      </div>
+    </footer>
+  </body>
+</html>
