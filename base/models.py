@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 class Post(models.Model):
@@ -18,6 +19,8 @@ class Contact(models.Model):
     first_name = models.CharField(max_length=20, null=True, blank=True)
     last_name = models.CharField(max_length=20, null=True, blank=True)
     email = models.EmailField(unique=True, null=True)
+    subject = models.CharField(max_length=100, null=True)
+    message = models.TextField(null=True, blank=True)
 
     def full_name(self):
         return f'{first_name} {last_name}'
@@ -45,8 +48,8 @@ class Event(models.Model):
     description = models.TextField(null=True, blank=True)
     date = models.DateTimeField(null=True)
     EVENT_TYPE_CHOICES = (
-        ('in_person', 'In Person', ),
-        ('online', 'Online')
+        ('In Person', 'In Person', ),
+        ('Online', 'Online')
     )
     type = models.CharField(max_length=20, choices=EVENT_TYPE_CHOICES, null=True, default="Online")
     location = models.URLField(null=True, blank=True, help_text="Enter the link to the location of the event.")
@@ -57,3 +60,7 @@ class Event(models.Model):
 
     def contains_image(self):
         return bool(self.image)
+
+    @property
+    def slug(self):
+        return slugify(self.title)

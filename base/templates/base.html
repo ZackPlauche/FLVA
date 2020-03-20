@@ -30,16 +30,18 @@
     <main>
       {% block main %}
       {% endblock %}
+    </main>
+    <footer>
+      {% block prefooter %}
       <div class="main-cta">
         <p class="title">Skyrocket Your Librarian Career</p>
         <p class="subtitle">Are you a Virginia citizen looking to become a librarian? We can help make your journey easier!<br><br> To start, let us know what brings you here.</p>
         <div class="buttons-area">
-          <a class="big-button" href="#">I want to Join</a>
-          <a class="big-button" href="#">I'm want Info</a>
+          <a class="big-button" href="{% url 'base:signup' %}">I want to Join</a>
+          <a class="big-button" href="{% url 'base:index' %}">I want Info</a>
         </div>
       </div>
-    </main>
-    <footer>
+      {% endblock %}
       <div class="footer">
         <div class="block">
           <p class="logo">FLVA</p>
@@ -57,7 +59,7 @@
           <div class="join-community">
             <p class="title">Join the Community!</p>
             <p class="subtitle">Become a part of our community and get help on your path to become a librarian.</p>
-            <a class="big-button" href="#">Sign Up</a>
+            <a class="big-button" href="{% url 'base:signup' %}">Sign Up</a>
           </div>
         </div>
       </div>

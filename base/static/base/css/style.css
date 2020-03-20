@@ -21,7 +21,9 @@ input {
 
 /* Forms */
 
-form input {
+form input,
+form textarea {
+  font-family: Lato;
   border: 1px solid lightgrey;
   padding: 10px;
   font-size: 20px;
@@ -35,7 +37,8 @@ form input {
   transition: all .2s ease;
 }
 
-form input:hover::-webkit-input-placeholder {
+form input:hover::-webkit-input-placeholder,
+form textarea:hover::-webkit-input-placeholder {
   color: grey;
 }
 
@@ -76,6 +79,7 @@ _____________________________________________________________________________ */
   font-family: Lato;
   font-size: 80px;
   font-weight: 900;
+  line-height: 80px;
 }
 
 /* Buttons */
@@ -366,11 +370,9 @@ _____________________________________________________________________________ */
   min-width: 60vw;
 }
 
-
-
 .posts > .subtitle,
-.events > .subtitle {
-  margin: -10px 0 20px;
+.index .events > .subtitle {
+  margin: 0px 0 20px;
   color: grey;
 }
 
@@ -412,7 +414,7 @@ _____________________________________________________________________________ */
 
 /* Events */
 
-.events {
+.index .events {
  max-width: 40vw;
  width: 100%;
  height: 100%;
@@ -425,13 +427,13 @@ _____________________________________________________________________________ */
 }
 
 @media screen and (max-width: 843px) {
-  .events {
+  .index .events {
     display: none;
 
   }
 }
 
-.event {
+.index .event {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -445,42 +447,42 @@ _____________________________________________________________________________ */
   transition: all .2s ease;
 }
 
-.event:hover {
+.index .event:hover {
   box-shadow: 0 0 4px red;
 }
 
-.event img {
+.index .event img {
   display: block;
   width: 100px;
   border: 1px solid red;
 }
 
-.event:hover img {
+.index .event:hover img {
   border: 1px solid red;
 }
 
-.event .text {
+.index .event .text {
   margin-left: 10px;
   height: 100%;
 }
 
-.event .title {
+.index .event .title {
   color: black;
   font-family: 'Work Sans';
   font-size: 20px;
   transition: .2s ease;
 }
 
-.event:hover .title {
+.index .event:hover .title {
   color: red;
 }
 
-.event .date {
+.index .event .date {
   font-size: .8em;
   color: grey;
 }
 
-.event .cta {
+.index .event .cta {
   font-family: 'Work Sans';
   color: white;
   font-size: 20px;
@@ -488,7 +490,7 @@ _____________________________________________________________________________ */
   transition: all .2s ease;
 }
 
-.event:hover .cta {
+.index .event:hover .cta {
   color: red;
 }
 
@@ -580,13 +582,207 @@ _____________________________________________________________________________ */
   grid-column: 1 / 3;
 }
 
+.contact form #id_subject {
+  grid-row: 3;
+  grid-column: 1 / 3;
+}
+
+.contact form #id_message {
+  grid-row: 4;
+  grid-column: 1 / 3;
+}
+
 .contact form .buttons-area {
   border: none;
   grid-column: 1 / 3;
-  grid-row: 3;
+  grid-row: 5;
 }
 
+/* 4. FAQ
+_____________________________________________________________________________ */
 
+.faq .section-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.questions {
+  width: 95%;
+  margin: auto;
+}
+
+.questions .block {
+  border-left: 1px dashed black;
+  margin-bottom: 20px;
+}
+
+.questions .block > * {
+  padding-left: 10px;
+  font-size: 50px;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 414px) {
+  .questions .block > * {
+    font-size: 30px;
+  }
+}
+
+.question {
+  background-color: #ff000020;
+  border-left: 3px solid red;
+}
+
+.question::before {
+  content: 'Q:';
+  color: red;
+}
+
+.answer {
+  background-color: #00bfff20;
+  border-left: 3px solid #00bfff;
+}
+
+.answer::before {
+  content: 'A:';
+  color: deepskyblue;
+  margin-right: 10px;
+}
+
+/* 5. Event Detail
+_____________________________________________________________________________ */
+
+.breadcrumbs {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+  margin: 10px 0 20px;
+  list-style: none;
+  color: red;
+
+}
+
+.breadcrumbs a {
+  font-size: 20px;
+  color: red;
+  text-decoration-color: white;
+  transition: all .1s ease;
+}
+
+.breadcrumbs a::before {
+  content: '< '
+}
+
+.breadcrumbs a:hover {
+  color: #b90000;
+  text-decoration-color: #b90000;
+}
+
+.event-detail {
+  display: flex;
+  justify-content: center;
+}
+
+.event-detail .block {
+  width: 95%;
+  max-width: 800px;
+  box-shadow: 0 0 1px #1f1f1f;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  margin-bottom: 40px
+}
+
+.event-detail img {
+  height: 300px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+}
+
+.event-detail .content {
+  padding: 5px 10px 20px;
+}
+
+.event-detail .date {
+  margin-bottom: 10px;
+  color: grey;
+}
+
+.event-detail .description {
+  font-size: 20px;
+}
+
+/* 6. Thank you
+_____________________________________________________________________________ */
+
+.thank-you {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+/* 7. Signup
+_____________________________________________________________________________ */
+
+.signup {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.signup > * {
+  width: 95%;
+}
+
+.signup .section-title {
+  margin: 10px 0 10px;
+}
+
+@media screen and (max-width: 414px) {
+  .signup .section-title {
+    font-size: 70px;
+  }
+}
+
+.signup .subtitle {
+  text-align: center;
+  line-height: 20px;
+  margin-bottom: 20px;
+  color: #1f1f1f;
+}
+
+.signup .form-area {
+  max-width: 600px;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 1px #1f1f1f;
+  border-radius: 5px;
+}
+
+.signup form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 5px;
+}
+
+.signup form input {
+  width: 100%;
+}
+
+.signup form #id_email {
+  grid-row: 2;
+  grid-column: 1 / 3;
+}
+
+.signup form .buttons-area {
+  grid-row: 3;
+  grid-column: 1 / 3;
+}
 
 /* Footer
 _____________________________________________________________________________ */

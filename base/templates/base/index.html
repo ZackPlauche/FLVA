@@ -32,7 +32,7 @@
       <p class="subtitle">See upcoming community events and get involved!</p>
 
       {% for event in events %}
-      <a class="event" href="#">
+      <a class="event" href="{% url 'base:event_detail' event.slug %}">
         <img src="{{ event.image.url }}" alt="Image relevant to the event.">
         <div class="text">
           <p class="title">{{ event.title }}</p>
