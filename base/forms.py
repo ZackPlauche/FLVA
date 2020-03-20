@@ -2,6 +2,9 @@ from django import forms
 from .models import Contact, FAQ
 
 class ContactForm(forms.ModelForm):
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'First name'}), label='')
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Last name'}), label='')
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}), label='')
 
     class Meta:
         model = Contact

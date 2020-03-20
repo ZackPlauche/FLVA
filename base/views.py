@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from .models import Post, Contact, FAQ, AboutSection
+from .models import Post, Contact, FAQ, AboutSection, Event
 from .forms import ContactForm, QuestionForm, AnswerForm
 
 # Create your views here.
 def index(request):
     posts = Post.objects.all()
-    context = {'posts': posts}
+    events = Event.objects.all()
+    context = {
+    'posts': posts,
+    'events':events,
+    }
     return render(request, 'base/index.html', context)
 
 def about(request):
@@ -21,7 +25,7 @@ def contact(request):
     else:
         form = ContactForm
         context = {'form': form}
-        return render(request, 'base/index.html', context)
+        return render(request, 'base/contact.html', context)
 
 def faq(request):
     faqs = FAQ.objects.all()
@@ -30,7 +34,7 @@ def faq(request):
         'faqs':  faq,
         'form': form,
     }
-    return render(request, 'base/faq', context)
+    return render(request, 'base/faq.html', context)
 
 def thank_you(request):
     return render(request, 'base/thankyou.html')

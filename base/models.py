@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 class Post(models.Model):
     image = models.ImageField(upload_to="images/", null=True, blank=True)
-    title = models.CharField(max_length=100, null=True, unique=True),
+    title = models.CharField(max_length=100, null=True, unique=True)
     body = models.TextField(null=True)
     display = models.BooleanField(default=False)
-    pub_date = models.DateField(auto_now=True)
+    pub_date = models.DateField()
 
     def __str__(self):
         return self.title
@@ -35,5 +35,25 @@ class FAQ(models.Model):
 
 class AboutSection(models.Model):
     title = models.CharField(max_length=20, null=True, blank=True)
-    body_content = models.TextField(null=True)
+    image = models.ImageField(upload_to="images/", null=True, blank=True)
+    body = models.TextField(null=True)
     display = models.BooleanField(default=True)
+
+class Event(models.Model):
+    image = models.ImageField(upload_to="images", null=True)
+    title = models.CharField(max_length=50, null=True)
+    description = models.TextField(null=True, blank=True)
+    date = models.DateTimeField(null=True)
+    EVENT_TYPE_CHOICES = (
+        ('in_person', 'In Person', ),
+        ('online', 'Online')
+    )
+    type = models.CharField(max_length=20, choices=EVENT_TYPE_CHOICES, null=True, default="Online")
+    location = models.URLField(null=True, blank=True, help_text="Enter the link to the location of the event.")
+    display = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
+
+    def contains_image(self):
+        return bool(self.image)

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    {% load static %}
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %} | FLVA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    {% load static %}
     <link rel="stylesheet" href="{% static 'base/css/style.css' %}">
+      <link rel="icon" type="image/png" href="{% static 'base/img/flva-favicon.png' %}">
   </head>
   <body>
     <header>
@@ -12,8 +15,7 @@
       {% endblock %}
       {% block navbar %}
       <nav class="navbar">
-        <a class="logo">FLVA</a>
-        <a class="sub-logo">Future Librarians of Virginia</a>
+          <a class="logo" href="{% url 'base:index' %}">FLVA<span>.org</span></a>
         <ul class="nav-links">
           <li><a href="{% url 'base:index' %}">Home</a></li>
           <li><a href="{% url 'base:about' %}">About</a></li>
@@ -28,11 +30,41 @@
     <main>
       {% block main %}
       {% endblock %}
+      <div class="main-cta">
+        <p class="title">Skyrocket Your Librarian Career</p>
+        <p class="subtitle">Are you a Virginia citizen looking to become a librarian? We can help make your journey easier!<br><br> To start, let us know what brings you here.</p>
+        <div class="buttons-area">
+          <a class="big-button" href="#">I want to Join</a>
+          <a class="big-button" href="#">I'm want Info</a>
+        </div>
+      </div>
     </main>
     <footer>
-      <div class="copyright">
-        © Jamia Hawkins {% now "Y" %}
+      <div class="footer">
+        <div class="block">
+          <p class="logo">FLVA</p>
+        </div>
+        <div class="block">
+          <ul class="nav-links">
+            <li><a href="{% url 'base:index' %}">Home</a></li>
+            <li><a href="{% url 'base:about' %}">About</a></li>
+            <li><a href="{% url 'base:contact' %}">Contact</a></li>
+            <li><a href="{% url 'base:faq' %}">FAQ</a></li>
+            <li><a href="#">Events</a></li>
+          </ul>
+        </div>
+        <div class="block">
+          <div class="join-community">
+            <p class="title">Join the Community!</p>
+            <p class="subtitle">Become a part of our community and get help on your path to become a librarian.</p>
+            <a class="big-button" href="#">Sign Up</a>
+          </div>
+        </div>
       </div>
+      <div class="copyright">
+        © Jamia Mason {% now "Y" %}
+      </div>
+      <script type="text/javascript"> </script>
     </footer>
   </body>
 </html>
