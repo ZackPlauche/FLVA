@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from datetime import date
 
 # Create your models here.
 class Post(models.Model):
@@ -49,7 +50,7 @@ class Event(models.Model):
     image = models.ImageField(upload_to="images", null=True)
     title = models.CharField(max_length=50, null=True)
     description = models.TextField(null=True, blank=True)
-    date = models.DateTimeField(null=True)
+    date = models.DateField(null=True)
     EVENT_TYPE_CHOICES = (
         ('In Person', 'In Person', ),
         ('Online', 'Online')
@@ -63,6 +64,10 @@ class Event(models.Model):
 
     def contains_image(self):
         return bool(self.image)
+
+    def has_passed(self):
+        return date.today() > self.date
+
 
     @property
     def slug(self):

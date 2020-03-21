@@ -32,6 +32,8 @@
       <p class="subtitle">See upcoming community events and get involved!</p>
 
       {% for event in events %}
+      {% if event.has_passed %}
+      {% else %}
       <a class="event" href="{% url 'base:event_detail' event.slug %}">
         <img src="{{ event.image.url }}" alt="Image relevant to the event.">
         <div class="text">
@@ -40,6 +42,7 @@
           <p class="cta">View</p>
         </div>
       </a>
+      {% endif %}
       {% endfor %}
     </div>
     {% endif %}
