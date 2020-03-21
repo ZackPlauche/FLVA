@@ -9,6 +9,9 @@ class Post(models.Model):
     display = models.BooleanField(default=False)
     pub_date = models.DateField()
 
+    class Meta:
+        ordering = ['-pub_date']
+
     def __str__(self):
         return self.title
 
