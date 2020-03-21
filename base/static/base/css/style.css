@@ -401,6 +401,7 @@ _____________________________________________________________________________ */
 
 .post img {
   width: 100%;
+  margin-bottom: 12px;
 }
 
 .post .body {
@@ -408,6 +409,7 @@ _____________________________________________________________________________ */
   font-weight: 400;
   line-height: 20px;
   font-size: 16px;
+  margin-bottom: 36px;
 }
 
 
@@ -504,11 +506,12 @@ _____________________________________________________________________________ */
   flex-flow: column;
   align-items: center;
   margin-bottom: 40px;
-  max-width: 866px;
+  width: 100%;
 }
 
 .about .section {
   width: 95%;
+  min-width: 911.51px;
   margin-bottom: 10px;
 }
 
