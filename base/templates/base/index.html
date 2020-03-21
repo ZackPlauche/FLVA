@@ -14,6 +14,7 @@
       <h1 class="title"><span>F</span>uture <span>L</span>ibrarians of <span>V</span>irgini<span>a</span></h1>
   </div>
   <div class="content">
+    {% if posts %}
     <div class="posts">
       <p class="section-title">News</p>
       <p class="subtitle">Stay up to date on the latest community updates.</p>
@@ -26,6 +27,7 @@
       </div>
       {% endfor %}
     </div>
+    {% endif %}
     {% if events %}
     <div class="events">
       <p class="section-title">Events</p>
