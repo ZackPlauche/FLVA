@@ -46,6 +46,12 @@ class AboutSection(models.Model):
     body = models.TextField(null=True)
     display = models.BooleanField(default=True)
 
+    class Meta:
+        ordering = ['pk']
+
+    def __str__(self):
+        return self.title
+
 class Event(models.Model):
     image = models.ImageField(upload_to="images", null=True)
     title = models.CharField(max_length=50, null=True)
