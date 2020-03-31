@@ -21,6 +21,15 @@ def about(request):
     context = {'about_sections': about_sections}
     return render(request, 'base/about.html', context)
 
+def events(request):
+    events = Event.objects.all()
+
+    context = {
+        'events': events,
+    }
+
+    return render(request, 'base/event-index.html', context)
+
 def event_detail(request, event_slug):
 
     events = Event.objects.all()

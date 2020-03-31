@@ -35,7 +35,7 @@ class Contact(models.Model):
 class FAQ(models.Model):
     question = models.CharField(max_length=200, null=True, help_text="Max Characters: 200", unique=True)
     answer = models.TextField(max_length=200, null=True, blank=True)
-    display = models.BooleanField(default=False)
+    display = models.BooleanField(default=True)
 
     def __str__(self):
         return self.question

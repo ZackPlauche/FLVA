@@ -11,6 +11,9 @@
   <div class="hero">
       <h1 class="title"><span>F</span>uture <span>L</span>ibrarians of <span>V</span>irgini<span>a</span></h1>
   </div>
+  {% if events %}
+  <a class="events-mobile-link" href="{% url 'base:events' %}">See Events</a>
+  {% endif %}
   <div class="content">
     {% if posts %}
     <div class="posts">
